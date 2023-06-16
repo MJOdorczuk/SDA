@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Naive sort</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <label for="numbersInput">Enter numbers (comma-separated):</label>
+    <input type="text" id="numbersInput">
+    <button onclick="sortNumbers(selectionSort)">Selection sort</button>
+    <button onclick="sortNumbers(insertionSort)">Insertion sort</button>
+    <button onclick="sortNumbers(bubbleSort)">Bubble sort</button>
+    <p id="sortedNumbers"></p>
+
+    <script src="selectionsort.js"></script>
+    <script src="insertionsort.js"></script>
+    <script src="bubblesort.js"></script>
+    <script>
+        var steps = [];
+        function sortNumbers(sort) {
+            var input = document.getElementById("numbersInput").value;
+
+            // Split the input string into an array of numbers
+            var numbers = input.split(',').map(function(number) {
+                return parseInt(number.trim());
+            });
+            steps = sort(numbers);
+            document.getElementById("sortedNumbers").textContent = "Sorted numbers: " + numbers.join(', ');
+        }
+
+        function hasInvalidInput(numbers) {
+        // Check if any of the numbers are NaN
+        for (var i = 0; i < numbers.length; i++) {
+            if (isNaN(numbers[i])) {
+            return true;
+            }
+        }
+
+        return false;
+        }
+    </script>
+    <script src="sketch.js"></script>
+</body>
+</html>

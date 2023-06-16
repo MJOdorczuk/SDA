@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Rekurencja - Fibonacci</title>
+    </head>
+    <body>
+        <label for="numberInput">Enter a number:</label>
+        <input type="number" id="numberInput">
+        <button onclick="calculate()">Calculate</button>
+        <p id="result"></p>
+        <p id="time"></p>
+        <script>
+            function fib(n){
+                if (n == 0 || n == 1) return n;
+                return fib(n - 1) + fib(n - 2);
+            }
+
+            function calculate(){
+                var number = document.getElementById("numberInput").value;
+                var startTime = performance.now();
+                var result = fib(number);
+                var endTime = performance.now();
+
+                var resultDisplay = document.getElementById("result");
+                resultDisplay.textContent = number + "th Fibonacci number is: " + result;
+                var timeDisplay = document.getElementById("time");
+                timeDisplay.textContent = "Executed in " + (endTime - startTime) + "ms ";
+            }
+        </script>
+    </body>
+</html>

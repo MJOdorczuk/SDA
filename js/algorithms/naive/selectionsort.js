@@ -1,4 +1,4 @@
-function selectionSort(L){
+function stepSelectionSort(L){
     steps = []
     for (var i = 0; i < L.length - 1; i++) {
         var mini = i;

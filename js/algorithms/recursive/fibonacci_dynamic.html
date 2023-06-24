@@ -8,10 +8,10 @@
         <button onclick="calculate()">Calculate</button>
         <p id="result"></p>
         <script>
+            const memory = new Map([
+                [0, 0], [1, 1]
+            ]);
             function fib(n){
-                const memory = new Map([
-                    [0, 0], [1, 1]
-                ])
                 if (memory.has(n)) {
                     return memory.get(n);
                 } else {

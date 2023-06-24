@@ -9,14 +9,12 @@
 <body>
     <label for="numbersInput">Enter numbers (comma-separated):</label>
     <input type="text" id="numbersInput">
-    <button onclick="sortNumbers(stepSelectionSort)">Selection sort</button>
-    <button onclick="sortNumbers(stepInsertionSort)">Insertion sort</button>
-    <button onclick="sortNumbers(stepBubbleSort)">Bubble sort</button>
+    <button onclick="sortNumbers(stepMergeSort)">Merge sort</button>
+    <button onclick="sortNumbers(stepMergeSort)">Quick sort</button>
     <p id="sortedNumbers"></p>
 
-    <script src="selectionsort.js"></script>
-    <script src="insertionsort.js"></script>
-    <script src="bubblesort.js"></script>
+    <script src="mergesort.js"></script>
+    <!-- <script src="quicksort.js"></script> -->
     <script>
         var steps = [];
         function sortNumbers(sort) {

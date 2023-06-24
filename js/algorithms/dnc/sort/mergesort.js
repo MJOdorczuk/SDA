@@ -6,6 +6,7 @@ function stepMergeSort(L) {
     var L2 = new Array(N).fill(0);
     var ns = Array.from(Array(N + 1),(x,i)=>i);
     var ns2 = [];
+    steps = [];
     while(ns.length > 2) {
         var j = 0;
         for (var i = 0; i < ns.length - 1; i+=2) {

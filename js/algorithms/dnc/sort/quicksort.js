@@ -1,14 +1,36 @@
-function merge(A, B){
-    result = []
-    while (A.length > 0 && B.length > 0) {
-        if (A[0] < B[0]) result.push(A.shift());
-        else result.push(B.shift());
+var steps = [];
+
+function quickSort(arr, low, high) {
+    if (low < high) {
+        let pivotIndex = partition(arr, low, high);
+        quickSort(arr, low, pivotIndex - 1);
+        quickSort(arr, pivotIndex + 1, high);
     }
-    return [...result,...A,...B];
 }
 
-function quickSort(L) {
-    if (L.length < 2) return L;
-    const half = Math.ceil(L.length / 2);
-    return merge(quickSort(L.slice(0,half)), quickSort(L.slice(half)));
+function partition(arr, low, high) {
+    let pivot = arr[high];
+    let i = low - 1;
+    for (let j = low; j < high; j++) {
+        steps.push([[...arr], i, high, j]);
+        if (arr[j] <= pivot) {
+        i++;
+        swap(arr, i, j);
+        }
+    }
+    swap(arr, i + 1, high);
+    return i + 1;
+}
+
+function swap(arr, i, j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+function stepQuickSort(L) {
+    steps = [];
+    quickSort(L, 0, L.length - 1);
+    steps.push([[...L], -1, -1, -1]);
+    return steps;
 }

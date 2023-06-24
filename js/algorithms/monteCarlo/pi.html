@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monte Carlo Pi</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <label for="numberInput">Enter a number:</label>
+    <input type="text" id="numberInput">
+    <button onclick="calculate()">Estimate</button>
+    <p id="result"></p>
+
+    <script src="pi.js"></script>
+    <script>
+        var xs = [];
+        var ys = [];
+        function calculate(){
+            var number = document.getElementById("numberInput").value;
+            var [result, x, y] = monteCarloPi(number);
+            xs = x;
+            ys = y;
+            var resultDisplay = document.getElementById("result");
+            resultDisplay.textContent = "Pi for " + number + " random trials came to be: " + result;
+        }
+    </script>
+    <script src="sketch.js"></script>
+</body>
+</html>

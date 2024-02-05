@@ -13,7 +13,7 @@ function draw() {
         const barwidth = width / L.length;
         for (var k = 0; k < L.length; k++) {
             var sum = 0;
-            for (var a = 0; a < 100000; a++) sum++;
+            for (var a = 0; a < 64000000; a++) sum++;
             fill(0,0,255);
             if (k == i) fill(0,255,0);
             if (k == j) fill(255,0,0);
